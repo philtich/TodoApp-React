@@ -1,27 +1,18 @@
-import { useState } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './index.css'
-import Layout from './components/common/Layout';
-import { Homepage } from './todos/Homepage';
-import { QueryClient, QueryClientProvider } from 'react-query';
-
-
-const queryClient = new QueryClient();
+import React from "react";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { MainView } from "./components/MainView";
 
 
 function App() {
 
+  // Create a client
+  const queryClient = new QueryClient();
+
   return (
     <QueryClientProvider client={queryClient}>
-    <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Homepage />} />
-      </Route>
-    </Routes>
-  </BrowserRouter>
-  </QueryClientProvider>
-  )
+     <MainView/>
+    </QueryClientProvider>
+  );
 }
 
-export default App
+export default App;
