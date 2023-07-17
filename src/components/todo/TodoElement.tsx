@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { TODOS } from "../../types/todo-types";
 import { useDeleteTodoByID } from "../../hooks/useDeleteTodoByID";
 import { useEditTodoByID } from "../../hooks/useEditTodoByID";
@@ -35,7 +35,7 @@ export const TodoElement = ({ todo }: TodoElementProps) => {
 
   return (
     <div
-      className={`h-20 px-5  w-full  drop-shadow-lg border-2 border-indigo-600 flex flex-wrap items-center justify-between ${
+      className={`h-20 px-5  w-full  drop-shadow-lg border-2 border-green-700 flex flex-wrap items-center justify-between ${
         todo.attributes.isDone && " opacity-30"
       }`}
     >
@@ -49,18 +49,18 @@ export const TodoElement = ({ todo }: TodoElementProps) => {
               isDone: !todo.attributes.isDone,
             })
           }
-          className="text-indigo-600"
+          className="text-green-700"
         >
         </button>
 
         {/* if edit - display input else show normal state */}
         {!editTodo ? (
-          <span className="font-bold text-indigo-500 uppercase">
+          <span className="font-bold text-green-700 uppercase">
             {todo.attributes.title}
           </span>
         ) : (
           // react hook form with normal hook validation
-          <>
+          <div className="flex items-center gap-5">
             <input
               className="inputField"
               type="text"
@@ -69,23 +69,22 @@ export const TodoElement = ({ todo }: TodoElementProps) => {
             ></input>
             <button
               type="button"
-              className="btn btn-primary"
               onClick={() => handleEdit()}
             >
-              save
+              <img className="imageDeleteEdit" src="/src/assets/save-technology-svgrepo-com.svg"></img>
             </button>
-          </>
+          </div>
         )}
       </div>
-      <div className="text-indigo-600 flex gap-5 items-center">
+      <div className="text-green-700 flex gap-5 items-center">
         <button
           className="hover:scale-105 hover:cursor-pointer"
           onClick={() => deleteTODO(todo.id)}
-        >DELETE</button>
+        ><img className="imageDeleteEdit" src="/src/assets/delete-button-svgrepo-com.svg"></img></button>
         <button
           className="hover:scale-105 hover:cursor-pointer"
           onClick={() => setEditTodo(todo.id)}
-        >EDIT</button>
+        ><img className="imageDeleteEdit" src="/src/assets/edit-button-svgrepo-com.svg"></img></button>
       </div>
     </div>
   );

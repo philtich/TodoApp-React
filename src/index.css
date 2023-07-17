@@ -12,5 +12,12 @@
   @apply m-0 p-0 lg:w-fit min-w-fit;
 }
 .btn-primary {
-  @apply bg-indigo-600 text-white font-bold uppercase px-5 py-3 hover:opacity-80;
+  @apply bg-green-700 text-white font-bold uppercase px-5 py-3 hover:opacity-80;
+}
+
+
+/*image */
+
+.imageDeleteEdit{
+  @apply w-8 h-8 
 }

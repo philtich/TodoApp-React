@@ -14,7 +14,7 @@ export const TodoView = ({ todos }: TodoViewProps) => {
       ))}
       {/* if no todos in store */}
       {todos.length <= 0 && (
-        <p className="my-5 text-indigo-500 font-bold text-center">
+        <p className="my-5 text-green-700 font-bold text-center">
           Create TODO`s now - no TODO`s created yet
         </p>
       )}
